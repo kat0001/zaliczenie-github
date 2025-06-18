@@ -45,3 +45,19 @@ class LiczbaRzymska:
 
     def __sub__(self, other):
         return LiczbaRzymska(self.liczba_arabska - other.liczba_arabska)
+
+a = LiczbaRzymska(150)
+b = LiczbaRzymska(2395)
+print(a.arabska_na_rzymska()) # CL (150)|
+print(int(a)) # 150, metoda __int__(self)
+print(a == b, a < b, a > b) # False, True, False, _eq_, _ le_, _gt_
+print(a + b) # MMDXLV (2545)
+print('V' in a, 'X' in a, 'L' in a) # False, False, True a += b # iadd
+a += b
+print(a, b) # MMDXLV(2545) MMCCCCXV (2395)
+print(len(a)) # 6, metoda _len_, dtugosé napisu MMDXLV
+c = LiczbaRzymska(3)
+d = LiczbaRzymska(8)
+print(c * d) # XXIV (24), metoda __mul__(self, other)
+print(d - c) # V (5), metoda _sub__(self, other)
+print(c - d) # ValueError: Wynik jest liczbq mniejsza od zera
