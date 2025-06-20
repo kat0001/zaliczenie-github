@@ -2,6 +2,11 @@ import pytest
 
 from liczba_rzymska import LiczbaRzymska
 
+@pytest.mark.parametrize("invalid_input", ["abc", None, [], {}, "", "12.5"])
+def test_invalid_inputs_raise_error(invalid_input):
+    with pytest.raises((ValueError, TypeError)):
+        LiczbaRzymska(invalid_input)
+
 def test_initialization():
     number = LiczbaRzymska(150)
     assert number.liczba_arabska == 150

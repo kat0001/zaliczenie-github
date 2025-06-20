@@ -43,7 +43,10 @@ class LiczbaRzymska:
         return LiczbaRzymska(self.liczba_arabska * other.liczba_arabska)
 
     def __sub__(self, other):
-        return LiczbaRzymska(self.liczba_arabska - other.liczba_arabska)
+        result = self.liczba_arabska - other.liczba_arabska
+        if result < 1:
+            raise ValueError("Wynik jest liczbą mniejszą od zera")
+        return LiczbaRzymska(result)
 
 # a = LiczbaRzymska(150)
 # b = LiczbaRzymska(2395)
